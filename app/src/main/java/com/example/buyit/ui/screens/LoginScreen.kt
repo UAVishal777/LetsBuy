@@ -13,6 +13,6 @@ import androidx.compose.ui.tooling.preview.Preview
 )
 fun LoginScreen(){
     Column {
-        Text(text = "Hi")
+        Text(text = "Hi Krishna")
     }
 }
