@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.buyit.models.SplashViewModel
-import com.example.buyit.ui.screens.Login.LoginScreen
+import com.example.buyit.ui.screens.login.LoginScreen
 import com.example.buyit.ui.theme.BuyItTheme
 
 class MainActivity : ComponentActivity() {

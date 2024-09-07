@@ -1,5 +1,6 @@
-package com.example.buyit.ui.screens.Login
+package com.example.buyit.ui.screens.login
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
@@ -18,11 +19,10 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Add
-//import androidx.compose.material.icons.filled.Visibility
-//import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material.icons.outlined.Email
-//import androidx.compose.material.icons.outlined.Key
+import androidx.compose.material.icons.outlined.Key
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -39,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -47,6 +48,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.buyit.R
 
 
 @Composable
@@ -55,6 +57,10 @@ fun LoginScreen() {
     var emailUsername by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
+    val icon = if (passwordVisible)
+        Icons.Filled.Visibility
+    else
+        Icons.Filled.VisibilityOff
     Box(
         Modifier
             .fillMaxSize()
@@ -71,12 +77,6 @@ fun LoginScreen() {
             .scrollable(rememberScrollState(), orientation = Orientation.Vertical),
         contentAlignment = Alignment.BottomCenter
     ){
-        val icon = if (passwordVisible)
-//        Icons.Filled.Visibility
-            Icons.Outlined.Email
-        else
-//            Icons.Filled.VisibilityOff
-        Icons.Outlined.Email
         Column(
             Modifier
                 .clip(RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp))
@@ -108,14 +108,14 @@ fun LoginScreen() {
                 leadingIcon = { Icon(imageVector = Icons.Outlined.Email, contentDescription = "Email Icon") },
                 shape = RoundedCornerShape(12.dp),
                 colors = OutlinedTextFieldDefaults.colors().copy(
-                        focusedIndicatorColor = Color.Magenta.copy(0.25f),
-                        focusedLeadingIconColor = Color.Magenta.copy(0.25f),
-                        focusedLabelColor = Color.Magenta.copy(0.25f),
-                        unfocusedLeadingIconColor = Color.Gray,
-                        unfocusedLabelColor = Color.Gray,
-                        unfocusedIndicatorColor = Color.Gray,
-                        focusedTextColor = Color.Gray
-                    )
+                    focusedIndicatorColor = Color.Magenta.copy(0.25f),
+                    focusedLeadingIconColor = Color.Magenta.copy(0.25f),
+                    focusedLabelColor = Color.Magenta.copy(0.25f),
+                    unfocusedLeadingIconColor = Color.Gray,
+                    unfocusedLabelColor = Color.Gray,
+                    unfocusedIndicatorColor = Color.Gray,
+                    focusedTextColor = Color.Gray
+                )
             )
             Spacer(modifier = Modifier.padding(20.dp))
             OutlinedTextField(
@@ -123,7 +123,7 @@ fun LoginScreen() {
                 maxLines = 1,
                 onValueChange = { password = it},
                 label = { Text(text = "Password")},
-                leadingIcon = { Icon(imageVector = Icons.Outlined.Add, contentDescription = "Password Icon") },
+                leadingIcon = { Icon(imageVector = Icons.Outlined.Key, contentDescription = "Password Icon") },
                 shape = RoundedCornerShape(12.dp),
                 isError = password.length in 2..4 && password.isNotBlank(),
                 trailingIcon = {
@@ -181,7 +181,7 @@ fun LoginScreen() {
                     .clickable { },
                 contentAlignment = Alignment.Center
             ){
-                Text(text = "Sign", fontSize = 16.sp)
+                Text(text = "Sign in", fontSize = 16.sp)
             }
 
             Spacer(modifier = Modifier.padding(10.dp))
@@ -201,8 +201,31 @@ fun LoginScreen() {
                 )
                 HorizontalDivider(Modifier.fillMaxWidth(0.4f))
             }
+            Spacer(modifier = Modifier.padding(20.dp))
+            Row(Modifier.fillMaxWidth(), Arrangement.spacedBy(45.dp, Alignment.CenterHorizontally), Alignment.CenterVertically) {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_google),
+                        contentDescription = "Google Icon",
+                        modifier = Modifier.size(42.dp)
+                    )
+                }
+                IconButton(onClick = { /*TODO*/ }) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_linkedin),
+                        contentDescription = "Google Icon",
+                        modifier = Modifier.size(42.dp)
+                    )
+                }
+                IconButton(onClick = { /*TODO*/ }) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_x),
+                        contentDescription = "Google Icon",
+                        modifier = Modifier.size(42.dp)
+                    )
+                }
+            }
         }
     }
 }
-
 
