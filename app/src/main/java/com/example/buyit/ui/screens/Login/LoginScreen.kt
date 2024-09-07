@@ -18,10 +18,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material.icons.outlined.Add
+//import androidx.compose.material.icons.filled.Visibility
+//import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material.icons.outlined.Email
-import androidx.compose.material.icons.outlined.Key
+//import androidx.compose.material.icons.outlined.Key
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -54,10 +55,6 @@ fun LoginScreen() {
     var emailUsername by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
-    val icon = if (passwordVisible)
-        Icons.Filled.Visibility
-    else
-        Icons.Filled.VisibilityOff
     Box(
         Modifier
             .fillMaxSize()
@@ -74,6 +71,12 @@ fun LoginScreen() {
             .scrollable(rememberScrollState(), orientation = Orientation.Vertical),
         contentAlignment = Alignment.BottomCenter
     ){
+        val icon = if (passwordVisible)
+//        Icons.Filled.Visibility
+            Icons.Outlined.Email
+        else
+//            Icons.Filled.VisibilityOff
+        Icons.Outlined.Email
         Column(
             Modifier
                 .clip(RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp))
@@ -120,7 +123,7 @@ fun LoginScreen() {
                 maxLines = 1,
                 onValueChange = { password = it},
                 label = { Text(text = "Password")},
-                leadingIcon = { Icon(imageVector = Icons.Outlined.Key, contentDescription = "Password Icon") },
+                leadingIcon = { Icon(imageVector = Icons.Outlined.Add, contentDescription = "Password Icon") },
                 shape = RoundedCornerShape(12.dp),
                 isError = password.length in 2..4 && password.isNotBlank(),
                 trailingIcon = {
