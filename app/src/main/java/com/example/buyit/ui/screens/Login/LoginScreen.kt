@@ -1,6 +1,5 @@
 package com.example.buyit.ui.screens.Login
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
@@ -40,7 +39,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -49,7 +47,6 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.buyit.R
 
 
 @Composable
@@ -203,30 +200,6 @@ fun LoginScreen() {
                     fontStyle = FontStyle.Italic
                 )
                 HorizontalDivider(Modifier.fillMaxWidth(0.4f))
-            }
-            Spacer(modifier = Modifier.padding(20.dp))
-            Row(Modifier.fillMaxWidth(), Arrangement.Absolute.Center, Alignment.CenterVertically) {
-                IconButton(onClick = { /*TODO*/ }) {
-                    Image(
-                        painter = painterResource(id = R.mipmap.google_ic_xxxhdpi),
-                        contentDescription = "Google Icon",
-                        modifier = Modifier.size(25.dp)
-                    )
-                }
-                IconButton(onClick = { /*TODO*/ }) {
-                    Image(
-                        painter = painterResource(id = R.mipmap.facebook_ic),
-                        contentDescription = "Google Icon",
-                        modifier = Modifier.size(25.dp)
-                    )
-                }
-                IconButton(onClick = { /*TODO*/ }) {
-                    Image(
-                        painter = painterResource(id = R.mipmap.google_ic_xxxhdpi),
-                        contentDescription = "Google Icon",
-                        modifier = Modifier.size(25.dp)
-                    )
-                }
             }
         }
     }
