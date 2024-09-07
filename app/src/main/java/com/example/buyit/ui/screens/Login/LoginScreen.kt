@@ -198,6 +198,30 @@ fun LoginScreen() {
                 )
                 HorizontalDivider(Modifier.fillMaxWidth(0.4f))
             }
+            Spacer(modifier = Modifier.padding(20.dp))
+            Row(Modifier.fillMaxWidth(), Arrangement.Absolute.Center, Alignment.CenterVertically) {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Image(
+                        painter = painterResource(id = R.mipmap.google_ic_xxxhdpi),
+                        contentDescription = "Google Icon",
+                        modifier = Modifier.size(25.dp)
+                    )
+                }
+                IconButton(onClick = { /*TODO*/ }) {
+                    Image(
+                        painter = painterResource(id = R.mipmap.facebook_ic),
+                        contentDescription = "Google Icon",
+                        modifier = Modifier.size(25.dp)
+                    )
+                }
+                IconButton(onClick = { /*TODO*/ }) {
+                    Image(
+                        painter = painterResource(id = R.mipmap.google_ic_xxxhdpi),
+                        contentDescription = "Google Icon",
+                        modifier = Modifier.size(25.dp)
+                    )
+                }
+            }
         }
     }
 }
